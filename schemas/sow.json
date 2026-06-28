@@ -1,0 +1,28 @@
+{
+  "document_type": "sow",
+  "display_name": "Statement of Work",
+  "description": "A Statement of Work defines the scope, deliverables, timeline, and terms for a consulting or services engagement.",
+  "distinguishing_characteristics": [
+    "Contains explicit deliverables or work products",
+    "Defines scope boundaries (in-scope / out-of-scope)",
+    "Specifies timeline, milestones, or phases",
+    "References a master agreement or contract",
+    "Includes pricing, rates, or total engagement value"
+  ],
+  "fields": [
+    {"name": "client_name", "type": "string", "required": true, "description": "The client or customer organization"},
+    {"name": "vendor_name", "type": "string", "required": true, "description": "The service provider or consulting firm"},
+    {"name": "project_name", "type": "string", "required": true, "description": "Name or title of the engagement"},
+    {"name": "effective_date", "type": "date", "required": true, "description": "Start date of the engagement"},
+    {"name": "end_date", "type": "date", "required": false, "description": "End date or expected completion"},
+    {"name": "total_value", "type": "currency", "required": false, "description": "Total contract or engagement value"},
+    {"name": "deliverables", "type": "list[string]", "required": true, "description": "Work products or deliverables to be produced"},
+    {"name": "milestones", "type": "list[object]", "required": false, "description": "Key milestones with dates or durations"},
+    {"name": "parties", "type": "list[string]", "required": true, "description": "All named parties to the agreement"},
+    {"name": "payment_terms", "type": "string", "required": false, "description": "Payment schedule, rates, or billing terms"},
+    {"name": "scope_summary", "type": "string", "required": false, "description": "High-level description of work in scope"},
+    {"name": "out_of_scope", "type": "list[string]", "required": false, "description": "Items explicitly excluded from scope"},
+    {"name": "assumptions", "type": "list[string]", "required": false, "description": "Key assumptions underlying the engagement"},
+    {"name": "termination_clause", "type": "string", "required": false, "description": "Conditions for early termination"}
+  ]
+}

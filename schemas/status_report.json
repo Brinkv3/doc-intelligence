@@ -1,0 +1,25 @@
+{
+  "document_type": "status_report",
+  "display_name": "Status Report",
+  "description": "A periodic update on project progress, covering accomplishments, upcoming work, risks, and blockers.",
+  "distinguishing_characteristics": [
+    "Contains a reporting period or date",
+    "Organized by accomplishments / completed / what was done",
+    "Includes upcoming work or next steps",
+    "Flags risks, issues, or blockers",
+    "May include RAG (Red/Amber/Green) status indicators"
+  ],
+  "fields": [
+    {"name": "project_name", "type": "string", "required": true, "description": "Name of the project being reported on"},
+    {"name": "reporting_period", "type": "string", "required": true, "description": "Date range or week/sprint covered"},
+    {"name": "author", "type": "string", "required": false, "description": "Person who prepared the report"},
+    {"name": "overall_status", "type": "string", "required": false, "description": "Overall status indicator (Green/Yellow/Red or On Track/At Risk/Off Track)"},
+    {"name": "accomplishments", "type": "list[string]", "required": true, "description": "Work completed during the reporting period"},
+    {"name": "upcoming_work", "type": "list[string]", "required": false, "description": "Planned activities for the next period"},
+    {"name": "risks_and_issues", "type": "list[object]", "required": false, "description": "Active risks or issues with severity and mitigation"},
+    {"name": "blockers", "type": "list[string]", "required": false, "description": "Items blocking progress"},
+    {"name": "decisions_needed", "type": "list[string]", "required": false, "description": "Decisions required from stakeholders"},
+    {"name": "budget_status", "type": "string", "required": false, "description": "Budget utilization or burn rate summary"},
+    {"name": "milestone_status", "type": "list[object]", "required": false, "description": "Status of key milestones (on track, delayed, completed)"}
+  ]
+}

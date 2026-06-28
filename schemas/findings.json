@@ -1,0 +1,24 @@
+{
+  "document_type": "findings",
+  "display_name": "Findings / Assessment Document",
+  "description": "An assessment or findings document that presents analysis results, observations, recommendations, and supporting evidence from an investigation, audit, or review.",
+  "distinguishing_characteristics": [
+    "Contains numbered or categorized findings",
+    "Each finding has supporting evidence or observations",
+    "Includes recommendations or remediation steps",
+    "Often includes severity or priority ratings",
+    "May reference standards, frameworks, or benchmarks"
+  ],
+  "fields": [
+    {"name": "assessment_title", "type": "string", "required": true, "description": "Title of the assessment or review"},
+    {"name": "assessment_date", "type": "date", "required": true, "description": "Date of the assessment or report"},
+    {"name": "assessor", "type": "string", "required": false, "description": "Person or team who conducted the assessment"},
+    {"name": "scope", "type": "string", "required": true, "description": "What was assessed — systems, processes, or areas in scope"},
+    {"name": "methodology", "type": "string", "required": false, "description": "Approach or methodology used for the assessment"},
+    {"name": "findings", "type": "list[object]", "required": true, "description": "Individual findings with title, description, severity, and evidence"},
+    {"name": "recommendations", "type": "list[object]", "required": true, "description": "Recommendations with priority and expected effort"},
+    {"name": "executive_summary", "type": "string", "required": false, "description": "High-level summary of key findings and recommendations"},
+    {"name": "risk_rating", "type": "string", "required": false, "description": "Overall risk rating or maturity score"},
+    {"name": "standards_referenced", "type": "list[string]", "required": false, "description": "Frameworks or standards used as benchmarks"}
+  ]
+}

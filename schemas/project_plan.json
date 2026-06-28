@@ -1,0 +1,25 @@
+{
+  "document_type": "project_plan",
+  "display_name": "Project Plan",
+  "description": "A project plan defines the phases, tasks, timeline, resource allocation, and dependencies for executing an engagement or initiative.",
+  "distinguishing_characteristics": [
+    "Contains phases or work breakdown structure",
+    "Defines tasks with owners, durations, or dates",
+    "Includes dependencies between tasks or phases",
+    "References resource allocation or team roles",
+    "May include Gantt chart descriptions or milestone tables"
+  ],
+  "fields": [
+    {"name": "project_name", "type": "string", "required": true, "description": "Name of the project"},
+    {"name": "project_manager", "type": "string", "required": false, "description": "Named project manager or lead"},
+    {"name": "start_date", "type": "date", "required": true, "description": "Project start date"},
+    {"name": "target_end_date", "type": "date", "required": false, "description": "Target completion date"},
+    {"name": "phases", "type": "list[object]", "required": true, "description": "Project phases with names, durations, and key activities"},
+    {"name": "milestones", "type": "list[object]", "required": true, "description": "Key milestones with target dates"},
+    {"name": "team_roles", "type": "list[object]", "required": false, "description": "Team members or roles and their responsibilities"},
+    {"name": "dependencies", "type": "list[string]", "required": false, "description": "Key dependencies or prerequisites"},
+    {"name": "risks", "type": "list[object]", "required": false, "description": "Identified risks with likelihood and impact"},
+    {"name": "success_criteria", "type": "list[string]", "required": false, "description": "Criteria for project success or acceptance"},
+    {"name": "communication_plan", "type": "string", "required": false, "description": "Cadence and channels for status reporting"}
+  ]
+}

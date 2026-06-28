@@ -1,0 +1,13 @@
+# --- Core pipeline ---
+anthropic              # Claude API for classification and extraction
+PyMuPDF                # PDF parsing (import as fitz)
+python-docx            # DOCX parsing
+pandas                 # CSV / tabular handling
+tiktoken               # Token counting
+pydantic               # Schema validation and typed models
+
+# --- Config / DX ---
+python-dotenv          # Load ANTHROPIC_API_KEY from .env
+
+# --- Dev / test ---
+pytest                 # Test harness

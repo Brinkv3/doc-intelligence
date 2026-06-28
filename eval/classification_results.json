@@ -1,0 +1,55 @@
+{
+  "accuracy": 1.0,
+  "correct": 6,
+  "total": 6,
+  "results": [
+    {
+      "document": "sample_sow.md",
+      "expected": "sow",
+      "predicted": "sow",
+      "confidence": 99,
+      "reasoning": "This document is explicitly titled 'Statement of Work' with an SOW number, and contains all hallmark characteristics: defined scope (in-scope/out-of-scope), explicit deliverables, milestone-based timeline with payments, team rates, and a reference to a governing Master Services Agreement. The total engagement value and payment terms further confirm this is a classic SOW.",
+      "correct": true
+    },
+    {
+      "document": "sample_contract.md",
+      "expected": "contract",
+      "predicted": "contract",
+      "confidence": 99,
+      "reasoning": "This document is explicitly titled 'Master Services Agreement' and contains all hallmark characteristics of a contract: legal terms covering liability, indemnification, warranties, confidentiality, governing law, dispute resolution, and signature blocks for authorized representatives. It also establishes the overarching framework under which individual SOWs will operate.",
+      "correct": true
+    },
+    {
+      "document": "sample_status_report.md",
+      "expected": "status_report",
+      "predicted": "status_report",
+      "confidence": 99,
+      "reasoning": "This document is a weekly status report with a defined reporting period (June 10\u201314, 2024), organized sections covering accomplishments, upcoming work, risks/issues, and blockers, and includes RAG status indicators (Yellow/At Risk) alongside milestone and budget tracking.",
+      "correct": true
+    },
+    {
+      "document": "sample_findings.md",
+      "expected": "findings",
+      "predicted": "findings",
+      "confidence": 99,
+      "reasoning": "This document is clearly a findings/assessment report containing numbered findings with severity ratings (Critical, High, Medium, Low), supporting evidence, and remediation recommendations resulting from a security assessment. It exhibits all hallmark characteristics of the findings document type, including categorized findings, evidence citations, recommendations with target remediation timelines, and references to standards and frameworks.",
+      "correct": true
+    },
+    {
+      "document": "sample_project_plan.md",
+      "expected": "project_plan",
+      "predicted": "project_plan",
+      "confidence": 98,
+      "reasoning": "This document contains all hallmark characteristics of a project plan: defined phases with durations and date ranges, a team roles table with allocation percentages, a milestone table with gate criteria, a dependencies section, and a risk register. It is explicitly titled 'Project Plan' and structures the engagement execution across four sequential phases with clear owners and timelines.",
+      "correct": true
+    },
+    {
+      "document": "sample_architecture_doc.md",
+      "expected": "architecture_doc",
+      "predicted": "architecture_doc",
+      "confidence": 99,
+      "reasoning": "This document describes the system components, technology stack, integration patterns, security considerations, and scalability approach for the Meridian Cloud Data Platform, all of which are hallmark characteristics of an architecture document. It also includes explicit design decision rationale (ADRs), deployment model details, and non-functional requirements such as availability, security, and cost constraints.",
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "document_type": "contract",
+  "display_name": "Contract / Master Services Agreement",
+  "description": "A binding agreement establishing the legal framework, terms, and conditions governing the relationship between parties. Includes MSAs, professional services agreements, and vendor contracts.",
+  "distinguishing_characteristics": [
+    "Contains legal terms and conditions (liability, indemnification, warranties)",
+    "Defines governing law and dispute resolution",
+    "Includes signature blocks for authorized representatives",
+    "References confidentiality or NDA provisions",
+    "Establishes the overarching relationship under which SOWs or work orders operate"
+  ],
+  "fields": [
+    {"name": "contract_title", "type": "string", "required": true, "description": "Title or name of the agreement"},
+    {"name": "parties", "type": "list[string]", "required": true, "description": "All named parties to the contract"},
+    {"name": "effective_date", "type": "date", "required": true, "description": "Date the contract takes effect"},
+    {"name": "expiration_date", "type": "date", "required": false, "description": "Date the contract expires or renews"},
+    {"name": "contract_type", "type": "string", "required": false, "description": "MSA, PSA, vendor agreement, etc."},
+    {"name": "governing_law", "type": "string", "required": false, "description": "Jurisdiction or governing law clause"},
+    {"name": "liability_cap", "type": "currency", "required": false, "description": "Maximum liability or damages cap"},
+    {"name": "termination_provisions", "type": "string", "required": false, "description": "Conditions and notice period for termination"},
+    {"name": "confidentiality_terms", "type": "string", "required": false, "description": "Confidentiality or NDA provisions"},
+    {"name": "intellectual_property", "type": "string", "required": false, "description": "IP ownership and licensing terms"},
+    {"name": "renewal_terms", "type": "string", "required": false, "description": "Auto-renewal, renewal notice period"},
+    {"name": "insurance_requirements", "type": "string", "required": false, "description": "Required insurance coverage types and minimums"},
+    {"name": "payment_terms", "type": "string", "required": false, "description": "General payment terms and conditions"}
+  ]
+}

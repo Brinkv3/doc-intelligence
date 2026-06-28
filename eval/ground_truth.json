@@ -1,0 +1,34 @@
+{
+  "classifications": [
+    {
+      "document": "sample_sow.md",
+      "expected_type": "sow",
+      "notes": "Clear SOW with deliverables, milestones, payment terms, and scope"
+    },
+    {
+      "document": "sample_contract.md",
+      "expected_type": "contract",
+      "notes": "MSA with legal terms, liability caps, IP provisions, governing law"
+    },
+    {
+      "document": "sample_status_report.md",
+      "expected_type": "status_report",
+      "notes": "Weekly status with accomplishments, risks, blockers, RAG status"
+    },
+    {
+      "document": "sample_findings.md",
+      "expected_type": "findings",
+      "notes": "Security assessment with numbered findings, severities, recommendations"
+    },
+    {
+      "document": "sample_project_plan.md",
+      "expected_type": "project_plan",
+      "notes": "Project plan with phases, milestones, team roles, dependencies, risks"
+    },
+    {
+      "document": "sample_architecture_doc.md",
+      "expected_type": "architecture_doc",
+      "notes": "Architecture doc with components, tech stack, design decisions, constraints"
+    }
+  ]
+}

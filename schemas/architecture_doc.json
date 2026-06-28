@@ -1,0 +1,25 @@
+{
+  "document_type": "architecture_doc",
+  "display_name": "Architecture Document",
+  "description": "A technical architecture document describing system design, component structure, integration patterns, and technology decisions.",
+  "distinguishing_characteristics": [
+    "Describes system components and their interactions",
+    "Includes architecture diagrams or references to them",
+    "Defines technology stack or platform choices",
+    "Addresses non-functional requirements (scalability, security, availability)",
+    "May include ADRs (Architecture Decision Records) or design rationale"
+  ],
+  "fields": [
+    {"name": "system_name", "type": "string", "required": true, "description": "Name of the system or platform being described"},
+    {"name": "author", "type": "string", "required": false, "description": "Architect or author of the document"},
+    {"name": "version", "type": "string", "required": false, "description": "Document version or revision"},
+    {"name": "components", "type": "list[object]", "required": true, "description": "System components with names, responsibilities, and technologies"},
+    {"name": "integration_points", "type": "list[object]", "required": false, "description": "External systems or APIs the system integrates with"},
+    {"name": "technology_stack", "type": "list[string]", "required": false, "description": "Technologies, frameworks, and platforms used"},
+    {"name": "deployment_model", "type": "string", "required": false, "description": "How the system is deployed (cloud, on-prem, hybrid)"},
+    {"name": "security_considerations", "type": "list[string]", "required": false, "description": "Security controls, auth mechanisms, data protection"},
+    {"name": "scalability_approach", "type": "string", "required": false, "description": "How the system scales to handle load"},
+    {"name": "design_decisions", "type": "list[object]", "required": false, "description": "Key design decisions with rationale"},
+    {"name": "constraints", "type": "list[string]", "required": false, "description": "Technical or organizational constraints"}
+  ]
+}
