@@ -18,6 +18,8 @@ from .ingest import Document, parse_file, parse_directory
 from .classifier import classify_document, ClassificationResult
 from .extractor import extract_fields, ExtractionResult
 from .validator import validate_extraction, ValidationReport
+from .analyzer import analyze_documents, AnalysisResult
+from .assessor import build_assessment, Assessment
 
 logger = logging.getLogger(__name__)
 
@@ -99,3 +101,26 @@ def process_directory(
             logger.exception("Failed to process %s", doc.doc_id)
 
     return results
+
+
+def process_and_assess(
+    path: str | Path,
+    client: anthropic.Anthropic | None = None,
+) -> Assessment:
+    """Process a directory of documents and produce a full assessment.
+
+    This is the highest-level entry point: processes all documents, runs
+    cross-document analysis, and generates a narrative assessment.
+    """
+    client = client or anthropic.Anthropic()
+    results = process_directory(path, client)
+
+    classifications = [r.classification for r in results]
+    extractions = [r.extraction for r in results]
+    validations = [r.validation for r in results]
+
+    analysis = analyze_documents(extractions, client) if len(results) >= 2 else None
+
+    return build_assessment(
+        classifications, extractions, validations, analysis, client
+    )
