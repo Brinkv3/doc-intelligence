@@ -1,0 +1,1197 @@
+[
+  {
+    "document": "sample_sow.md",
+    "classification": {
+      "document_id": "sample_sow.md",
+      "document_type": "sow",
+      "confidence": 99,
+      "reasoning": "This document is explicitly titled 'Statement of Work' with a SOW number, and contains all defining characteristics: explicit deliverables, in-scope/out-of-scope boundaries, milestone-based timeline with pricing, total engagement value, and a reference to a governing Master Services Agreement."
+    },
+    "extraction": {
+      "document_id": "sample_sow.md",
+      "document_type": "sow",
+      "fields": [
+        {
+          "name": "client_name",
+          "value": "Meridian Financial Services, Inc.",
+          "confidence": 100,
+          "source_location": "Section 'Parties', bullet point listing Client",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "vendor_name",
+          "value": "Apex Consulting Group, LLC",
+          "confidence": 100,
+          "source_location": "Section 'Parties', bullet point listing Service Provider",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "project_name",
+          "value": "Data Platform Modernization",
+          "confidence": 100,
+          "source_location": "Document title: 'Statement of Work \u2014 Data Platform Modernization'",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "effective_date",
+          "value": "2024-03-01",
+          "confidence": 100,
+          "source_location": "Header metadata, 'Effective Date: March 1, 2024'",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "name": "end_date",
+          "value": "2024-08-31",
+          "confidence": 100,
+          "source_location": "Header metadata, 'End Date: August 31, 2024'",
+          "field_type": "date",
+          "required": false
+        },
+        {
+          "name": "total_value",
+          "value": "$400,000",
+          "confidence": 100,
+          "source_location": "Section 'Total Engagement Value': '$400,000 (Four Hundred Thousand Dollars)'",
+          "field_type": "currency",
+          "required": false
+        },
+        {
+          "name": "deliverables",
+          "value": [
+            "Current State Assessment Report",
+            "Target State Architecture Document",
+            "Migration Runbook and Rollback Plan",
+            "Migrated schemas and ETL pipelines (in AWS)",
+            "Parallel Run Validation Report",
+            "Knowledge Transfer Materials and Session Recordings"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Deliverables', numbered list items 1\u20136",
+          "field_type": "list[string]",
+          "required": true
+        },
+        {
+          "name": "milestones",
+          "value": [
+            {
+              "name": "SOW Execution",
+              "target_date": "2024-03-01",
+              "payment": "$75,000"
+            },
+            {
+              "name": "Assessment Complete",
+              "target_date": "2024-04-15",
+              "payment": "$50,000"
+            },
+            {
+              "name": "Architecture Approved",
+              "target_date": "2024-05-15",
+              "payment": "$75,000"
+            },
+            {
+              "name": "Migration Complete",
+              "target_date": "2024-07-31",
+              "payment": "$125,000"
+            },
+            {
+              "name": "Parallel Run Sign-off",
+              "target_date": "2024-08-31",
+              "payment": "$75,000"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Milestones', table with columns Milestone, Target Date, Payment",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "parties",
+          "value": [
+            "Meridian Financial Services, Inc. (\"Client\")",
+            "Apex Consulting Group, LLC (\"Provider\")"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Parties', bullet points listing Client and Service Provider",
+          "field_type": "list[string]",
+          "required": true
+        },
+        {
+          "name": "payment_terms",
+          "value": "Net 30 from invoice date. Invoices submitted upon milestone completion with supporting documentation.",
+          "confidence": 100,
+          "source_location": "Section 'Payment Terms'",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "scope_summary",
+          "value": "Provider will assist Client in modernizing its legacy data platform, migrating from on-premises Oracle data warehouse to a cloud-native architecture on AWS. The engagement covers assessment, architecture design, migration execution, and knowledge transfer.",
+          "confidence": 100,
+          "source_location": "Section 'Project Overview', paragraph 1",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "out_of_scope",
+          "value": [
+            "Migration of non-production or archived data",
+            "Modifications to upstream source systems",
+            "End-user training on BI tools",
+            "Ongoing managed services post-migration"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Scope of Work', subsection 'Out of Scope', bullet points",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "assumptions",
+          "value": [
+            "Client will provide VPN access within 5 business days of SOW execution",
+            "Client DBA team will be available for 8 hours/week for schema documentation",
+            "AWS accounts and IAM roles will be provisioned by Client prior to architecture phase",
+            "Source system freezes during migration windows will be coordinated 2 weeks in advance"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Assumptions', bullet points",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "termination_clause",
+          "value": "Either party may terminate this SOW with 30 days written notice. In the event of termination, Client will pay for all work completed through the termination date plus any non-cancelable expenses.",
+          "confidence": 100,
+          "source_location": "Section 'Termination'",
+          "field_type": "string",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_sow.md",
+      "document_type": "sow",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 14,
+        "fields_found": 14,
+        "fields_missing": 0,
+        "required_found": 6,
+        "required_total": 6,
+        "extraction_rate": 100.0
+      }
+    }
+  },
+  {
+    "document": "sample_contract.md",
+    "classification": {
+      "document_id": "sample_contract.md",
+      "document_type": "contract",
+      "confidence": 99,
+      "reasoning": "This document is a Master Services Agreement containing all hallmark characteristics of a contract: legal terms covering liability, indemnification, warranties, confidentiality, governing law, dispute resolution, and signature blocks for authorized representatives. It explicitly establishes the overarching legal framework under which individual Statements of Work will operate."
+    },
+    "extraction": {
+      "document_id": "sample_contract.md",
+      "document_type": "contract",
+      "fields": [
+        {
+          "name": "contract_title",
+          "value": "Master Services Agreement",
+          "confidence": 100,
+          "source_location": "Document heading, line 1",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "parties",
+          "value": [
+            "Meridian Financial Services, Inc. (\"Client\"), a Delaware corporation with principal offices at 200 Commerce Drive, Suite 400, Richmond, VA 23219",
+            "Apex Consulting Group, LLC (\"Provider\"), a Virginia limited liability company with principal offices at 1400 Technology Boulevard, Suite 300, McLean, VA 22102"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Parties', paragraphs 1 and 2",
+          "field_type": "list[string]",
+          "required": true
+        },
+        {
+          "name": "effective_date",
+          "value": "2023-01-15",
+          "confidence": 100,
+          "source_location": "Document header, 'Effective Date: January 15, 2023'; confirmed in signature block dates",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "name": "expiration_date",
+          "value": "2026-01-15",
+          "confidence": 85,
+          "source_location": "Section 'Term': 'initial term of three (3) years' from Effective Date of January 15, 2023",
+          "field_type": "date",
+          "required": false
+        },
+        {
+          "name": "contract_type",
+          "value": "Master Services Agreement (MSA)",
+          "confidence": 100,
+          "source_location": "Document heading and Agreement Number 'MSA-2023-0017'",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "governing_law",
+          "value": "Commonwealth of Virginia, without regard to conflict of laws principles. Disputes resolved in state or federal courts located in Fairfax County, Virginia.",
+          "confidence": 100,
+          "source_location": "Section 'Governing Law', paragraphs 1 and 2",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "liability_cap",
+          "value": "$1,000,000",
+          "confidence": 95,
+          "source_location": "Section 'Limitation of Liability': 'shall not exceed the total fees paid or payable under the applicable SOW during the twelve (12) months preceding the claim, or $1,000,000, whichever is less'",
+          "field_type": "currency",
+          "required": false
+        },
+        {
+          "name": "termination_provisions",
+          "value": "Either party may terminate: (a) for convenience upon ninety (90) days written notice; (b) immediately upon material breach by the other party that remains uncured for thirty (30) days after written notice; (c) immediately if the other party becomes insolvent or files for bankruptcy.",
+          "confidence": 100,
+          "source_location": "Section 'Termination', items (a), (b), and (c)",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "confidentiality_terms",
+          "value": "Each party agrees to hold in confidence all Confidential Information received from the other party. Confidential Information includes any non-public information such as business plans, financial data, customer information, technical specifications, and proprietary methodologies. This obligation survives termination for a period of three (3) years.",
+          "confidence": 100,
+          "source_location": "Section 'Confidentiality', paragraphs 1 and 2",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "intellectual_property",
+          "value": "All work product created by Provider specifically for Client under a SOW ('Client Work Product') shall be owned by Client upon full payment. Provider retains ownership of all pre-existing intellectual property, tools, methodologies, and frameworks ('Provider IP'). To the extent Provider IP is incorporated into Client Work Product, Provider grants Client a perpetual, non-exclusive, royalty-free license to use such Provider IP solely in connection with the Client Work Product.",
+          "confidence": 100,
+          "source_location": "Section 'Intellectual Property', paragraphs 1\u20133",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "renewal_terms",
+          "value": "Automatically renews for successive one (1) year periods unless either party provides written notice of non-renewal at least ninety (90) days prior to the end of the then-current term.",
+          "confidence": 100,
+          "source_location": "Section 'Term', second sentence",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "insurance_requirements",
+          "value": "Provider shall maintain throughout the term: (a) Commercial General Liability insurance with limits of not less than $2,000,000 per occurrence; (b) Professional Liability / Errors & Omissions insurance with limits of not less than $5,000,000 per claim; (c) Workers' Compensation insurance as required by law; (d) Cyber Liability insurance with limits of not less than $3,000,000.",
+          "confidence": 100,
+          "source_location": "Section 'Insurance', items (a) through (d)",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "payment_terms",
+          "value": "Client shall pay Provider the fees specified in each SOW. Unless otherwise stated in a SOW, invoices are due Net 30 from the invoice date. Late payments shall accrue interest at 1.5% per month.",
+          "confidence": 100,
+          "source_location": "Section 'Fees and Payment', paragraphs 1\u20133",
+          "field_type": "string",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_contract.md",
+      "document_type": "contract",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 13,
+        "fields_found": 13,
+        "fields_missing": 0,
+        "required_found": 3,
+        "required_total": 3,
+        "extraction_rate": 100.0
+      }
+    }
+  },
+  {
+    "document": "sample_status_report.md",
+    "classification": {
+      "document_id": "sample_status_report.md",
+      "document_type": "status_report",
+      "confidence": 99,
+      "reasoning": "This document is a weekly status report with a defined reporting period (June 10\u201314, 2024), organized sections covering accomplishments, upcoming work, risks/issues, and blockers, and includes RAG status indicators (Yellow/At Risk) along with milestone and budget tracking. All hallmark characteristics of a status report are present."
+    },
+    "extraction": {
+      "document_id": "sample_status_report.md",
+      "document_type": "status_report",
+      "fields": [
+        {
+          "name": "project_name",
+          "value": "Data Platform Modernization",
+          "confidence": 100,
+          "source_location": "Document title and 'Project:' field at top of document",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "reporting_period",
+          "value": "June 10\u201314, 2024",
+          "confidence": 100,
+          "source_location": "'Reporting Period:' field at top of document",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "author",
+          "value": "Marcus Chen, Project Manager",
+          "confidence": 100,
+          "source_location": "'Prepared By:' field at top of document",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "overall_status",
+          "value": "Yellow (At Risk)",
+          "confidence": 100,
+          "source_location": "'Overall Status:' section heading",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "accomplishments",
+          "value": [
+            "Completed migration of 38 of 47 production schemas to Redshift (81% complete)",
+            "Successfully validated ETL pipelines 1\u20138 in parallel run environment",
+            "Resolved data type mapping issues for CLOB/BLOB fields identified last week",
+            "Delivered Knowledge Transfer Session 2: 'AWS Glue Pipeline Development' (12 attendees)",
+            "Received Client DBA sign-off on schema validation for Finance and Risk domains"
+          ],
+          "confidence": 100,
+          "source_location": "'Accomplishments This Week' section",
+          "field_type": "list[string]",
+          "required": true
+        },
+        {
+          "name": "upcoming_work",
+          "value": [
+            "Migrate remaining 9 schemas (HR, Compliance, Operations domains)",
+            "Begin parallel run for ETL pipelines 9\u201312",
+            "Knowledge Transfer Session 3: 'Monitoring and Alerting with CloudWatch'",
+            "Begin drafting Parallel Run Validation Report"
+          ],
+          "confidence": 100,
+          "source_location": "'Upcoming Work (Next Week)' section",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "risks_and_issues",
+          "value": [
+            {
+              "risk_issue": "HR schema migration blocked by PII masking requirement",
+              "severity": "High",
+              "status": "Open",
+              "mitigation": "Working with Client InfoSec to define masking rules; may need 1-week extension"
+            },
+            {
+              "risk_issue": "ETL Pipeline 11 (regulatory reporting) has undocumented upstream dependencies",
+              "severity": "Medium",
+              "status": "Investigating",
+              "mitigation": "Scheduling deep-dive with source system team for Monday"
+            },
+            {
+              "risk_issue": "Parallel run environment has 40% less compute capacity than production",
+              "severity": "Medium",
+              "status": "Mitigated",
+              "mitigation": "Client provisioning additional Redshift nodes by Thursday"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Risks and Issues' section, table",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "blockers",
+          "value": [
+            "PII masking rules for HR schema not yet provided by Client InfoSec team (requested June 3, follow-up sent June 12)",
+            "Access to Compliance domain source system pending security review (submitted May 28)"
+          ],
+          "confidence": 100,
+          "source_location": "'Blockers' section",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "decisions_needed",
+          "value": [
+            "Approve 1-week extension for HR schema migration milestone (from July 31 to August 7) to accommodate PII masking requirements",
+            "Confirm whether archived data (pre-2020) should be included in parallel run validation"
+          ],
+          "confidence": 100,
+          "source_location": "'Decisions Needed' section",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "budget_status",
+          "value": "Budget consumed: $287,500 of $400,000 (72%). Projected at completion: $395,000 (within budget, assuming no scope changes). Hours burned: 1,842 of estimated 2,400.",
+          "confidence": 100,
+          "source_location": "'Budget Status' section",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "milestone_status",
+          "value": [
+            {
+              "milestone": "SOW Execution",
+              "target_date": "March 1, 2024",
+              "status": "Complete"
+            },
+            {
+              "milestone": "Assessment Complete",
+              "target_date": "April 15, 2024",
+              "status": "Complete"
+            },
+            {
+              "milestone": "Architecture Approved",
+              "target_date": "May 15, 2024",
+              "status": "Complete (May 20)"
+            },
+            {
+              "milestone": "Migration Complete",
+              "target_date": "July 31, 2024",
+              "status": "At Risk (HR schema)"
+            },
+            {
+              "milestone": "Parallel Run Sign-off",
+              "target_date": "August 31, 2024",
+              "status": "On Track"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Milestone Status' section, table",
+          "field_type": "list[object]",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_status_report.md",
+      "document_type": "status_report",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 11,
+        "fields_found": 11,
+        "fields_missing": 0,
+        "required_found": 3,
+        "required_total": 3,
+        "extraction_rate": 100.0
+      }
+    }
+  },
+  {
+    "document": "sample_findings.md",
+    "classification": {
+      "document_id": "sample_findings.md",
+      "document_type": "findings",
+      "confidence": 99,
+      "reasoning": "This document is a security assessment findings report containing numbered findings with severity ratings (Critical, High, Medium, Low), supporting evidence, and remediation recommendations \u2014 all hallmark characteristics of a findings/assessment document. It also references standards frameworks and includes a summary table with priority ratings."
+    },
+    "extraction": {
+      "document_id": "sample_findings.md",
+      "document_type": "findings",
+      "fields": [
+        {
+          "name": "assessment_title",
+          "value": "Annual Cloud Infrastructure Security Assessment",
+          "confidence": 100,
+          "source_location": "Document header, 'Assessment Title' field",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "assessment_date",
+          "value": "2024-05-15",
+          "confidence": 100,
+          "source_location": "Document header, 'Assessment Date' field",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "name": "assessor",
+          "value": "Pinnacle Security Advisors, LLC",
+          "confidence": 100,
+          "source_location": "Document header, 'Prepared By' field",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "scope",
+          "value": "The assessment covered 3 production accounts, 2 staging accounts, and the centralized networking account across the following areas: Identity and Access Management (IAM policies, roles, MFA enforcement), Network architecture and segmentation (VPCs, security groups, NACLs), Data protection (encryption at rest and in transit, key management), Logging and monitoring (CloudTrail, GuardDuty, Config Rules), Incident response readiness, and Compliance alignment with FFIEC IT Examination Handbook and NIST CSF.",
+          "confidence": 100,
+          "source_location": "Executive Summary paragraph and 'Scope' section",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "methodology",
+          "value": "The assessment was conducted using a combination of automated scanning (Prowler, ScoutSuite), manual configuration review, and interviews with Meridian's Cloud Engineering and InfoSec teams. Findings are rated using a four-level severity scale: Critical, High, Medium, Low.",
+          "confidence": 100,
+          "source_location": "'Methodology' section",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "findings",
+          "value": [
+            {
+              "title": "Overly Permissive IAM Policies",
+              "description": "14 IAM roles across production accounts use wildcard (*) permissions for S3 and Lambda actions. Three roles have full AdministratorAccess attached, including one used by an automated deployment pipeline.",
+              "severity": "Critical",
+              "evidence": "IAM policy analysis via Prowler identified 14 roles with overly broad permissions. The deployment pipeline role (role: cicd-deploy-prod) has AdministratorAccess with no condition keys or resource restrictions."
+            },
+            {
+              "title": "Unencrypted S3 Buckets Containing Customer Data",
+              "description": "3 of 28 production S3 buckets do not have default encryption enabled. Two of these buckets contain customer PII based on naming conventions and sample object inspection.",
+              "severity": "High",
+              "evidence": "ScoutSuite scan identified buckets meridian-customer-exports, meridian-reports-archive, and meridian-temp-processing without default encryption. Object-level inspection confirmed PII presence in the first two buckets."
+            },
+            {
+              "title": "Incomplete CloudTrail Coverage",
+              "description": "CloudTrail is enabled in all production accounts but data event logging is not enabled for S3 object-level operations or Lambda invocations. This limits the ability to investigate data access incidents.",
+              "severity": "Medium",
+              "evidence": "CloudTrail configuration review confirmed that only management events are being logged. S3 data events and Lambda data events are not captured."
+            },
+            {
+              "title": "Security Groups Allow Unrestricted SSH Access",
+              "description": "7 security groups in the production VPC allow inbound SSH (port 22) from 0.0.0.0/0. While no EC2 instances currently have public IPs, this represents a latent risk if instances are later assigned public IPs or if VPC peering is modified.",
+              "severity": "Medium",
+              "evidence": "Security group analysis identified sg-0a1b2c3d4e, sg-1f2g3h4i5j, and 5 others with inbound rule allowing TCP 22 from 0.0.0.0/0."
+            },
+            {
+              "title": "No Formal Incident Response Runbook for Cloud",
+              "description": "Meridian has a general incident response plan but lacks cloud-specific runbooks for common scenarios (compromised credentials, unauthorized data access, resource hijacking).",
+              "severity": "Low",
+              "evidence": "Interview with InfoSec team confirmed that the existing IR plan references on-premises procedures. Cloud-specific playbooks have not been developed despite 18 months of production cloud usage."
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Findings' section, Finding 1 through Finding 5",
+          "field_type": "list[object]",
+          "required": true
+        },
+        {
+          "name": "recommendations",
+          "value": [
+            {
+              "finding_reference": "Overly Permissive IAM Policies",
+              "recommendation": "Implement least-privilege policies for all production roles. Replace AdministratorAccess on the CI/CD role with scoped permissions limited to the specific services and resources required for deployment.",
+              "priority": "Critical",
+              "expected_effort": "30 days"
+            },
+            {
+              "finding_reference": "Unencrypted S3 Buckets Containing Customer Data",
+              "recommendation": "Enable SSE-S3 or SSE-KMS default encryption on all production buckets immediately. Implement an SCP (Service Control Policy) to prevent creation of unencrypted buckets.",
+              "priority": "High",
+              "expected_effort": "14 days"
+            },
+            {
+              "finding_reference": "Incomplete CloudTrail Coverage",
+              "recommendation": "Enable S3 data event logging for all buckets containing sensitive data. Enable Lambda data event logging for production functions. Estimated additional cost: ~$200/month based on current event volume.",
+              "priority": "Medium",
+              "expected_effort": "30 days"
+            },
+            {
+              "finding_reference": "Security Groups Allow Unrestricted SSH Access",
+              "recommendation": "Restrict SSH access to specific CIDR ranges (corporate VPN and bastion host IPs only). Implement AWS Systems Manager Session Manager as the primary remote access method.",
+              "priority": "Medium",
+              "expected_effort": "14 days"
+            },
+            {
+              "finding_reference": "No Formal Incident Response Runbook for Cloud",
+              "recommendation": "Develop cloud-specific IR runbooks for the top 5 incident scenarios. Conduct a tabletop exercise within 60 days.",
+              "priority": "Low",
+              "expected_effort": "60 days"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "Individual finding subsections under 'Findings' and 'Recommendations Summary' table",
+          "field_type": "list[object]",
+          "required": true
+        },
+        {
+          "name": "executive_summary",
+          "value": "Pinnacle Security Advisors conducted a comprehensive security assessment of Meridian Financial Services' AWS cloud infrastructure during the period April 15\u2013May 10, 2024. The assessment covered 3 production accounts, 2 staging accounts, and the centralized networking account. Overall, Meridian's cloud security posture is rated Moderate Risk \u2014 foundational controls are in place, but several gaps in IAM governance, network segmentation, and data encryption practices require remediation before the upcoming regulatory examination.",
+          "confidence": 100,
+          "source_location": "'Executive Summary' section",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "risk_rating",
+          "value": "Moderate Risk \u2014 Foundational security controls are in place (GuardDuty active, Config Rules deployed, MFA enforced for console access), but the combination of overly permissive IAM policies and unencrypted customer data buckets presents material risk that should be addressed prior to the Q3 regulatory examination.",
+          "confidence": 100,
+          "source_location": "'Overall Risk Rating' section",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "standards_referenced",
+          "value": [
+            "FFIEC IT Examination Handbook \u2014 Information Security",
+            "NIST Cybersecurity Framework (CSF) v2.0",
+            "CIS AWS Foundations Benchmark v3.0",
+            "AWS Well-Architected Framework \u2014 Security Pillar"
+          ],
+          "confidence": 100,
+          "source_location": "'Standards Referenced' section",
+          "field_type": "list[string]",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_findings.md",
+      "document_type": "findings",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 10,
+        "fields_found": 10,
+        "fields_missing": 0,
+        "required_found": 5,
+        "required_total": 5,
+        "extraction_rate": 100.0
+      }
+    }
+  },
+  {
+    "document": "sample_project_plan.md",
+    "classification": {
+      "document_id": "sample_project_plan.md",
+      "document_type": "project_plan",
+      "confidence": 97,
+      "reasoning": "This document contains all hallmark characteristics of a project plan: defined phases with durations and date ranges, a team roles table with allocations, milestone tracking with gate criteria, task dependencies, and a risk register. It is explicitly titled 'Project Plan' and organizes work into a structured breakdown across four sequential phases with named owners and timelines."
+    },
+    "extraction": {
+      "document_id": "sample_project_plan.md",
+      "document_type": "project_plan",
+      "fields": [
+        {
+          "name": "project_name",
+          "value": "Data Platform Modernization",
+          "confidence": 100,
+          "source_location": "Document title and 'Project Name' header field",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "project_manager",
+          "value": "Marcus Chen",
+          "confidence": 100,
+          "source_location": "'Project Manager' header field and Team Roles table",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "value": "2024-03-04",
+          "confidence": 100,
+          "source_location": "'Start Date' header field",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "name": "target_end_date",
+          "value": "2024-08-31",
+          "confidence": 100,
+          "source_location": "'Target End Date' header field",
+          "field_type": "date",
+          "required": false
+        },
+        {
+          "name": "phases",
+          "value": [
+            {
+              "name": "Phase 1: Assessment",
+              "duration": "6 weeks",
+              "start_date": "2024-03-04",
+              "end_date": "2024-04-12",
+              "key_activities": [
+                "Inventory all Oracle schemas, tables, views, and stored procedures",
+                "Document existing ETL pipelines (Informatica mappings, schedules, dependencies)",
+                "Catalog downstream consumers (BI reports, data feeds, APIs)",
+                "Assess data quality and identify transformation requirements",
+                "Produce Current State Assessment Report"
+              ]
+            },
+            {
+              "name": "Phase 2: Architecture Design",
+              "duration": "5 weeks",
+              "start_date": "2024-04-15",
+              "end_date": "2024-05-17",
+              "key_activities": [
+                "Design target state architecture (Redshift, Glue, S3, Lake Formation)",
+                "Define data model mapping from Oracle to Redshift",
+                "Design ETL pipeline architecture in AWS Glue",
+                "Define security model (IAM, encryption, VPC configuration)",
+                "Produce Target State Architecture Document",
+                "Architecture review with Client technical leadership"
+              ]
+            },
+            {
+              "name": "Phase 3: Migration Execution",
+              "duration": "10 weeks",
+              "start_date": "2024-05-20",
+              "end_date": "2024-07-26",
+              "key_activities": [
+                "Set up AWS infrastructure (Redshift cluster, Glue jobs, S3 buckets)",
+                "Migrate schemas in priority order: Finance \u2192 Risk \u2192 Operations \u2192 HR \u2192 Compliance",
+                "Rewrite 12 ETL pipelines from Informatica to AWS Glue",
+                "Unit test each migrated schema and pipeline",
+                "Produce Migration Runbook and Rollback Plan"
+              ]
+            },
+            {
+              "name": "Phase 4: Validation and Transition",
+              "duration": "5 weeks",
+              "start_date": "2024-07-29",
+              "end_date": "2024-08-30",
+              "key_activities": [
+                "Execute parallel run (30 business days)",
+                "Compare Oracle and Redshift outputs for all critical reports",
+                "Conduct 4 knowledge transfer sessions with Client data engineering team",
+                "Resolve any discrepancies identified during parallel run",
+                "Produce Parallel Run Validation Report",
+                "Obtain Client sign-off"
+              ]
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Phases' section, subsections Phase 1 through Phase 4",
+          "field_type": "list[object]",
+          "required": true
+        },
+        {
+          "name": "milestones",
+          "value": [
+            {
+              "name": "Assessment Complete",
+              "target_date": "2024-04-12",
+              "gate_criteria": "Assessment report delivered and accepted"
+            },
+            {
+              "name": "Architecture Approved",
+              "target_date": "2024-05-17",
+              "gate_criteria": "Architecture document approved by Client CTO"
+            },
+            {
+              "name": "Migration 50% Complete",
+              "target_date": "2024-06-28",
+              "gate_criteria": "24 of 47 schemas migrated and tested"
+            },
+            {
+              "name": "Migration Complete",
+              "target_date": "2024-07-26",
+              "gate_criteria": "All 47 schemas and 12 pipelines migrated"
+            },
+            {
+              "name": "Parallel Run Start",
+              "target_date": "2024-07-29",
+              "gate_criteria": "All migration artifacts deployed to production"
+            },
+            {
+              "name": "Final Sign-off",
+              "target_date": "2024-08-30",
+              "gate_criteria": "Parallel run report accepted, knowledge transfer complete"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Milestones' section, milestone table",
+          "field_type": "list[object]",
+          "required": true
+        },
+        {
+          "name": "team_roles",
+          "value": [
+            {
+              "role": "Engagement Lead",
+              "name": "David Park",
+              "allocation": "50%"
+            },
+            {
+              "role": "Project Manager",
+              "name": "Marcus Chen",
+              "allocation": "100%"
+            },
+            {
+              "role": "Senior Data Engineer",
+              "name": "Priya Sharma",
+              "allocation": "100%"
+            },
+            {
+              "role": "Senior Data Engineer",
+              "name": "Alex Thompson",
+              "allocation": "100%"
+            },
+            {
+              "role": "Cloud Architect",
+              "name": "Rachel Kim",
+              "allocation": "75%"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Team Roles' section, role table",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "dependencies",
+          "value": [
+            "Client DBA team availability for schema documentation (8 hours/week minimum)",
+            "AWS account provisioning and IAM role creation by Client Cloud team",
+            "VPN access for Provider team members",
+            "Source system freeze windows coordinated with business owners",
+            "Client InfoSec approval of security architecture before Phase 3"
+          ],
+          "confidence": 100,
+          "source_location": "'Dependencies' section, bulleted list",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "risks",
+          "value": [
+            {
+              "risk": "Undocumented Oracle stored procedures delay assessment",
+              "likelihood": "Medium",
+              "impact": "Medium",
+              "mitigation": "Allocate additional discovery time; engage Oracle DBA contractors if needed"
+            },
+            {
+              "risk": "Schema complexity exceeds estimate",
+              "likelihood": "Low",
+              "impact": "High",
+              "mitigation": "Architecture phase includes complexity scoring; will flag if >20% over estimate"
+            },
+            {
+              "risk": "Parallel run reveals data discrepancies",
+              "likelihood": "Medium",
+              "impact": "High",
+              "mitigation": "Build in 2-week buffer before final sign-off; define acceptable variance thresholds upfront"
+            },
+            {
+              "risk": "Client resource availability during migration",
+              "likelihood": "Medium",
+              "impact": "Medium",
+              "mitigation": "Secure named Client resources at SOW signing; escalation path to Engagement Lead"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "'Risks' section, risk table",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "success_criteria",
+          "value": [
+            "All 47 production schemas migrated with zero data loss",
+            "All 12 ETL pipelines operational in AWS Glue with performance within 20% of Oracle baseline",
+            "Parallel run demonstrates <0.01% variance in critical report outputs",
+            "Client data engineering team rated 'confident' in post-KT survey (\u22654/5 average)",
+            "Project completed within budget ($400,000) and timeline (August 31, 2024)"
+          ],
+          "confidence": 100,
+          "source_location": "'Success Criteria' section, bulleted list",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "communication_plan",
+          "value": "Weekly Status Report: Every Friday, distributed to Steering Committee. Bi-weekly Steering Committee: Every other Wednesday, 60 minutes. Daily Standup (during Phase 3): 15 minutes, Provider team + Client DBA lead. Ad-hoc Escalation: Via Teams channel #data-migration, response within 4 hours.",
+          "confidence": 100,
+          "source_location": "'Communication Plan' section, bulleted list",
+          "field_type": "string",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_project_plan.md",
+      "document_type": "project_plan",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 11,
+        "fields_found": 11,
+        "fields_missing": 0,
+        "required_found": 4,
+        "required_total": 4,
+        "extraction_rate": 100.0
+      }
+    }
+  },
+  {
+    "document": "sample_architecture_doc.md",
+    "classification": {
+      "document_id": "sample_architecture_doc.md",
+      "document_type": "architecture_doc",
+      "confidence": 99,
+      "reasoning": "This document explicitly describes the system components, technology stack, integration patterns, security considerations, scalability approach, and design decisions for a cloud data platform, all hallmark characteristics of an architecture document. It includes architecture decision records (ADRs), non-functional requirements, and a detailed breakdown of AWS services and their interactions."
+    },
+    "extraction": {
+      "document_id": "sample_architecture_doc.md",
+      "document_type": "architecture_doc",
+      "fields": [
+        {
+          "name": "system_name",
+          "value": "Meridian Cloud Data Platform (CDP)",
+          "confidence": 100,
+          "source_location": "Document header, 'System Name:' field",
+          "field_type": "string",
+          "required": true
+        },
+        {
+          "name": "author",
+          "value": "Rachel Kim, Cloud Architect",
+          "confidence": 100,
+          "source_location": "Document header, 'Author:' field",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "version",
+          "value": "2.1",
+          "confidence": 100,
+          "source_location": "Document header, 'Version:' field",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "components",
+          "value": [
+            {
+              "name": "Data Ingestion Layer",
+              "responsibilities": "Ingest data from upstream source systems via batch ETL and near-real-time streaming. AWS Glue crawlers discover and catalog source data; Glue ETL jobs handle transformation and loading; S3 serves as the landing zone and staging area; Supports CSV, Parquet, JSON, and AVRO formats.",
+              "technologies": [
+                "AWS Glue",
+                "Amazon S3"
+              ]
+            },
+            {
+              "name": "Data Storage Layer",
+              "responsibilities": "Store structured and semi-structured data for analytics consumption. Redshift cluster with RA3 nodes (production and staging), Redshift Spectrum for querying data directly in S3, data lake on S3 for raw and archived data, lifecycle policies for hot/warm/cold data tiers.",
+              "technologies": [
+                "Amazon Redshift (RA3 nodes)",
+                "Amazon S3"
+              ]
+            },
+            {
+              "name": "Data Catalog and Governance",
+              "responsibilities": "Centralized metadata management, access control, and data lineage. Lake Formation manages fine-grained access control (column-level security); Glue Data Catalog provides schema registry and searchable metadata; data classification tags applied to PII and sensitive financial data.",
+              "technologies": [
+                "AWS Lake Formation",
+                "AWS Glue Data Catalog"
+              ]
+            },
+            {
+              "name": "Analytics and Reporting",
+              "responsibilities": "Serve analytics consumers with dashboards and ad-hoc query capabilities. QuickSight dashboards for executive and operational reporting; JDBC/ODBC endpoints for existing BI tools; Redshift query editor for analyst self-service.",
+              "technologies": [
+                "Amazon QuickSight",
+                "JDBC/ODBC connections"
+              ]
+            },
+            {
+              "name": "Orchestration",
+              "responsibilities": "Coordinate ETL workflows, manage dependencies, handle retries and error states. Step Functions state machines for complex multi-step ETL workflows; EventBridge schedules for time-based triggers; SNS notifications for pipeline failures and SLA breaches.",
+              "technologies": [
+                "AWS Step Functions",
+                "Amazon EventBridge"
+              ]
+            },
+            {
+              "name": "Monitoring and Observability",
+              "responsibilities": "Monitor platform health, query performance, and security events. CloudWatch dashboards for Redshift performance; CloudWatch Alarms for resource utilization thresholds; CloudTrail for audit logging of all API calls and data access.",
+              "technologies": [
+                "Amazon CloudWatch",
+                "AWS CloudTrail"
+              ]
+            }
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Components', subsections 1\u20136",
+          "field_type": "list[object]",
+          "required": true
+        },
+        {
+          "name": "integration_points",
+          "value": [
+            {
+              "external_system": "Core Banking (Fiserv)",
+              "direction": "Inbound",
+              "protocol": "SFTP \u2192 S3",
+              "data_format": "CSV",
+              "frequency": "Daily (2 AM ET)"
+            },
+            {
+              "external_system": "Risk Management (SAS)",
+              "direction": "Inbound",
+              "protocol": "JDBC",
+              "data_format": "SQL query",
+              "frequency": "Daily (4 AM ET)"
+            },
+            {
+              "external_system": "Regulatory Reporting",
+              "direction": "Outbound",
+              "protocol": "S3 \u2192 SFTP",
+              "data_format": "Fixed-width",
+              "frequency": "Monthly"
+            },
+            {
+              "external_system": "Customer Portal",
+              "direction": "Outbound",
+              "protocol": "API Gateway",
+              "data_format": "JSON",
+              "frequency": "Real-time"
+            },
+            {
+              "external_system": "Compliance (Archer)",
+              "direction": "Outbound",
+              "protocol": "SFTP",
+              "data_format": "CSV",
+              "frequency": "Weekly"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Integration Points', integration table",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "technology_stack",
+          "value": [
+            "AWS Redshift (RA3) \u2014 primary data warehouse",
+            "AWS Glue \u2014 ETL and data cataloging",
+            "Amazon S3 \u2014 data lake and staging",
+            "AWS Lake Formation \u2014 governance and access control",
+            "AWS Step Functions \u2014 workflow orchestration",
+            "Amazon EventBridge \u2014 event-driven scheduling",
+            "Amazon QuickSight \u2014 business intelligence",
+            "Amazon CloudWatch \u2014 monitoring and alerting",
+            "AWS CloudTrail \u2014 audit logging",
+            "AWS KMS \u2014 encryption key management",
+            "AWS IAM \u2014 identity and access management",
+            "Terraform \u2014 infrastructure as code"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Technology Stack'",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "deployment_model",
+          "value": "Cloud-native on AWS, single region (us-east-1), multi-AZ for high availability. All infrastructure provisioned and managed via Terraform with state stored in S3 and locked via DynamoDB. CI/CD pipeline via AWS CodePipeline deploying Glue jobs and Redshift DDL changes.",
+          "confidence": 100,
+          "source_location": "Section 'Deployment Model'",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "security_considerations",
+          "value": [
+            "All data encrypted at rest using AWS KMS (customer-managed keys)",
+            "All data encrypted in transit via TLS 1.2+",
+            "VPC with private subnets only \u2014 no public endpoints",
+            "Lake Formation column-level access control for PII fields",
+            "MFA required for all console access",
+            "IAM roles follow least-privilege principle (per-service, per-environment)",
+            "Quarterly access reviews coordinated with InfoSec",
+            "CloudTrail logs shipped to centralized security account"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Security Considerations'",
+          "field_type": "list[string]",
+          "required": false
+        },
+        {
+          "name": "scalability_approach",
+          "value": "Redshift RA3 nodes with managed storage provide elastic scaling \u2014 compute and storage scale independently. Concurrency Scaling automatically adds cluster capacity during peak query periods. For data volume growth beyond 5 years, transition older data to Redshift Spectrum (query S3 directly) to maintain query performance on hot data.",
+          "confidence": 100,
+          "source_location": "Section 'Scalability Approach'",
+          "field_type": "string",
+          "required": false
+        },
+        {
+          "name": "design_decisions",
+          "value": [
+            {
+              "decision": "Redshift over Snowflake",
+              "rationale": "Client has existing AWS Enterprise Agreement; Redshift integrates natively with Lake Formation and existing IAM model",
+              "alternatives_considered": "Snowflake (better concurrency, higher cost), BigQuery (wrong cloud)"
+            },
+            {
+              "decision": "Glue over Airflow",
+              "rationale": "Serverless, no infrastructure to manage, native integration with Glue Data Catalog",
+              "alternatives_considered": "MWAA (Airflow on AWS), Step Functions only, Informatica Cloud"
+            },
+            {
+              "decision": "RA3 over DC2 nodes",
+              "rationale": "Managed storage allows compute and storage to scale independently; RA3 pricing more favorable for 2TB+ datasets",
+              "alternatives_considered": "DC2 (faster local SSD, but storage-coupled scaling)"
+            },
+            {
+              "decision": "Terraform over CloudFormation",
+              "rationale": "Team expertise, multi-cloud portability if needed, better module ecosystem",
+              "alternatives_considered": "CloudFormation (native, no additional tooling), Pulumi"
+            }
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Design Decisions', design decisions table",
+          "field_type": "list[object]",
+          "required": false
+        },
+        {
+          "name": "constraints",
+          "value": [
+            "Must remain within AWS due to existing Enterprise Agreement (no multi-cloud)",
+            "All data must reside in us-east-1 per regulatory requirements",
+            "Maximum acceptable query latency for executive dashboards: 10 seconds",
+            "Platform must support SOC 2 Type II and FFIEC audit requirements",
+            "Total infrastructure cost target: \u2264$15,000/month (excluding data transfer)"
+          ],
+          "confidence": 100,
+          "source_location": "Section 'Constraints'",
+          "field_type": "list[string]",
+          "required": false
+        }
+      ]
+    },
+    "validation": {
+      "document_id": "sample_architecture_doc.md",
+      "document_type": "architecture_doc",
+      "is_valid": true,
+      "issues": [],
+      "field_summary": {
+        "total_fields": 11,
+        "fields_found": 11,
+        "fields_missing": 0,
+        "required_found": 2,
+        "required_total": 2,
+        "extraction_rate": 100.0
+      }
+    }
+  }
+]
