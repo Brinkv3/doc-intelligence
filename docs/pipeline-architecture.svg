@@ -9,7 +9,7 @@
     .box-green { fill: #22c55e; rx: 10; ry: 10; }
     .box-amber { fill: #d97706; rx: 10; ry: 10; }
     .box-rose { fill: #b5566e; rx: 10; ry: 10; }
-    .box-purple { fill: #7c3aed; rx: 10; ry: 10; }
+    .box-royal { fill: #2563eb; rx: 10; ry: 10; }
     .box-white { fill: #ffffff; rx: 10; ry: 10; stroke: #1e293b; stroke-width: 1.5; }
     .box-label { fill: #fff; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
     .box-label-dark { fill: #1e293b; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
@@ -120,7 +120,7 @@
 
   <!-- Phase 5: Assessment -->
   <text x="30" y="820" class="phase-label">Assessment</text>
-  <rect x="150" y="805" width="460" height="55" class="box-purple" />
+  <rect x="150" y="805" width="460" height="55" class="box-royal" />
   <text x="380" y="826" class="box-label">Assessment Builder</text>
   <text x="380" y="842" class="box-sub">Claude → structured JSON + narrative summary</text>
 
