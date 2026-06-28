@@ -1,0 +1,148 @@
+<svg viewBox="0 0 760 1100" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Document Intelligence Pipeline Architecture</title>
+  <desc>A flowchart showing how documents are ingested, classified, extracted, validated, and analyzed across document boundaries to produce structured assessments.</desc>
+
+  <style>
+    .box-navy { fill: #1e3a5f; rx: 10; ry: 10; }
+    .box-blue { fill: #0ea5e9; rx: 10; ry: 10; }
+    .box-slate { fill: #5b6b7d; rx: 10; ry: 10; }
+    .box-green { fill: #22c55e; rx: 10; ry: 10; }
+    .box-amber { fill: #d97706; rx: 10; ry: 10; }
+    .box-rose { fill: #b5566e; rx: 10; ry: 10; }
+    .box-purple { fill: #7c3aed; rx: 10; ry: 10; }
+    .box-white { fill: #ffffff; rx: 10; ry: 10; stroke: #1e293b; stroke-width: 1.5; }
+    .box-label { fill: #fff; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .box-label-dark { fill: #1e293b; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .box-sub { fill: rgba(255,255,255,0.8); font-family: system-ui, sans-serif; font-size: 10px; text-anchor: middle; dominant-baseline: central; }
+    .box-sub-dark { fill: #64748b; font-family: system-ui, sans-serif; font-size: 10px; text-anchor: middle; dominant-baseline: central; }
+    .arrow { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .arrow-dash { stroke: #1e293b; stroke-width: 2; fill: none; marker-end: url(#arrowhead-black); stroke-dasharray: 6 4; }
+    .phase-label { fill: #64748b; font-family: system-ui, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .section-bg { fill: #f8fafc; rx: 12; ry: 12; opacity: 0.5; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+    </marker>
+    <marker id="arrowhead-black" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1e293b" />
+    </marker>
+  </defs>
+
+  <!-- Phase 1: Ingestion -->
+  <text x="30" y="30" class="phase-label">Ingestion</text>
+  <rect x="150" y="15" width="460" height="55" class="box-navy" />
+  <text x="380" y="36" class="box-label">Document Ingestion</text>
+  <text x="380" y="52" class="box-sub">PDF · DOCX · MD · TXT · CSV → uniform Document objects</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="70" x2="380" y2="105" class="arrow" />
+
+  <!-- Phase 2: Classification -->
+  <text x="30" y="125" class="phase-label">Classification</text>
+  <rect x="150" y="110" width="460" height="55" class="box-blue" />
+  <text x="380" y="131" class="box-label">Document Classifier</text>
+  <text x="380" y="147" class="box-sub">Claude → document type + confidence score + reasoning</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="165" x2="380" y2="200" class="arrow" />
+
+  <!-- Schema selection -->
+  <text x="30" y="220" class="phase-label">Schema</text>
+  <rect x="150" y="205" width="220" height="55" class="box-slate" />
+  <text x="260" y="226" class="box-label">Schema Loader</text>
+  <text x="260" y="242" class="box-sub">Select schema for classified type</text>
+
+  <!-- Schema files -->
+  <rect x="420" y="205" width="190" height="55" class="box-white" />
+  <text x="515" y="223" class="box-label-dark">schemas/*.json</text>
+  <text x="515" y="240" class="box-sub-dark">SOW · Contract · Plan</text>
+  <text x="515" y="252" class="box-sub-dark">Status · Findings · Arch</text>
+
+  <!-- Arrow from schema files to loader -->
+  <line x1="420" y1="232" x2="370" y2="232" class="arrow-dash" />
+
+  <!-- Arrow down -->
+  <line x1="260" y1="260" x2="260" y2="295" class="arrow" />
+  <line x1="260" y1="295" x2="380" y2="295" stroke="#94a3b8" stroke-width="2" fill="none" />
+  <line x1="380" y1="295" x2="380" y2="310" class="arrow" />
+
+  <!-- Phase 3: Extraction -->
+  <text x="30" y="330" class="phase-label">Extraction</text>
+  <rect x="150" y="315" width="460" height="70" class="box-green" />
+  <text x="380" y="338" class="box-label">Structured Extractor</text>
+  <text x="380" y="355" class="box-sub">Claude → typed fields per schema</text>
+  <text x="380" y="370" class="box-sub">Each field: value + confidence (0-100) + source location</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="385" x2="380" y2="420" class="arrow" />
+
+  <!-- Phase 4: Validation -->
+  <text x="30" y="440" class="phase-label">Validation</text>
+  <rect x="150" y="425" width="460" height="70" class="box-amber" />
+  <text x="380" y="448" class="box-label">Validator</text>
+  <text x="380" y="465" class="box-sub">Required fields · Confidence thresholds · Format checks</text>
+  <text x="380" y="480" class="box-sub">Quality gate: is_valid + issues list + field summary</text>
+
+  <!-- Section background for cross-doc -->
+  <rect x="20" y="520" width="720" height="230" class="section-bg" />
+  <text x="30" y="545" class="phase-label">Cross-Document Analysis</text>
+
+  <!-- Arrow to cross-doc -->
+  <line x1="380" y1="495" x2="380" y2="560" class="arrow" />
+
+  <!-- Multiple document fan-in visual -->
+  <rect x="80" y="565" width="130" height="40" class="box-white" />
+  <text x="145" y="585" class="box-sub-dark">Doc 1 extraction</text>
+  <rect x="230" y="565" width="130" height="40" class="box-white" />
+  <text x="295" y="585" class="box-sub-dark">Doc 2 extraction</text>
+  <rect x="380" y="565" width="130" height="40" class="box-white" />
+  <text x="445" y="585" class="box-sub-dark">Doc 3 extraction</text>
+  <rect x="530" y="565" width="130" height="40" class="box-white" />
+  <text x="595" y="585" class="box-sub-dark">Doc N extraction</text>
+
+  <!-- Fan-in arrows -->
+  <line x1="145" y1="605" x2="380" y2="640" class="arrow" />
+  <line x1="295" y1="605" x2="380" y2="640" class="arrow" />
+  <line x1="445" y1="605" x2="380" y2="640" class="arrow" />
+  <line x1="595" y1="605" x2="380" y2="640" class="arrow" />
+
+  <!-- Analyzer box -->
+  <rect x="150" y="645" width="460" height="85" class="box-rose" />
+  <text x="380" y="668" class="box-label">Cross-Document Analyzer</text>
+  <text x="380" y="685" class="box-sub">Claude compares extractions across documents</text>
+  <text x="380" y="700" class="box-sub">Inconsistencies · Gaps · Cross-references</text>
+  <text x="380" y="715" class="box-sub">Each finding: type + severity + citations</text>
+
+  <!-- Arrow -->
+  <line x1="380" y1="755" x2="380" y2="800" class="arrow" />
+
+  <!-- Phase 5: Assessment -->
+  <text x="30" y="820" class="phase-label">Assessment</text>
+  <rect x="150" y="805" width="460" height="55" class="box-purple" />
+  <text x="380" y="826" class="box-label">Assessment Builder</text>
+  <text x="380" y="842" class="box-sub">Claude → structured JSON + narrative summary</text>
+
+  <!-- Two output boxes -->
+  <line x1="300" y1="860" x2="300" y2="900" class="arrow" />
+  <line x1="460" y1="860" x2="460" y2="900" class="arrow" />
+
+  <text x="30" y="930" class="phase-label">Output</text>
+  <rect x="150" y="905" width="200" height="55" class="box-white" />
+  <text x="250" y="926" class="box-label-dark">Structured JSON</text>
+  <text x="250" y="942" class="box-sub-dark">Typed, auditable, importable</text>
+
+  <rect x="410" y="905" width="200" height="55" class="box-white" />
+  <text x="510" y="926" class="box-label-dark">Narrative Summary</text>
+  <text x="510" y="942" class="box-sub-dark">Consultant-ready assessment</text>
+
+  <!-- External consumer note -->
+  <line x1="250" y1="960" x2="380" y2="1010" class="arrow-dash" />
+  <line x1="510" y1="960" x2="380" y2="1010" class="arrow-dash" />
+
+  <rect x="230" y="1015" width="300" height="50" class="box-white" />
+  <text x="380" y="1033" class="box-label-dark">MCP Server / External Consumer</text>
+  <text x="380" y="1050" class="box-sub-dark">Clean typed interfaces for integration</text>
+
+</svg>

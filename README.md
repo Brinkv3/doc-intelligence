@@ -2,25 +2,11 @@
 
 A document intelligence system that ingests consulting and enterprise documents, classifies them by type, extracts structured fields, validates extractions, performs cross-document analysis, and produces auditable assessments with narrative summaries.
 
-## What It Does
+## Architecture
 
-```
-Raw Documents (PDF/DOCX/MD/TXT/CSV)
-      ↓
-  Ingestion         → Parse to text + metadata
-      ↓
-  Classification    → Identify document type with confidence score
-      ↓
-  Schema Selection  → Load extraction schema for the classified type
-      ↓
-  Extraction        → Pull structured fields with confidence + source citations
-      ↓
-  Validation        → Check required fields, confidence thresholds, format
-      ↓
-  Cross-Doc Analysis → Compare across documents, flag inconsistencies/gaps
-      ↓
-  Assessment Output → Structured JSON + narrative summary
-```
+<p align="center">
+  <img src="docs/pipeline-architecture.svg" alt="Document Intelligence Pipeline Architecture" width="760" />
+</p>
 
 ## Supported Document Types
 
