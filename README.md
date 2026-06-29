@@ -60,6 +60,22 @@ print(assessment.to_json())
 python eval/run_eval.py
 ```
 
+## Interactive Demo
+
+A Streamlit app provides a visual interface over the pipeline — upload documents and see classification, extraction, validation, and cross-document analysis results in real time.
+
+```bash
+pip install -r requirements-demo.txt
+streamlit run app.py
+```
+
+Opens at `http://localhost:8501`. Two modes:
+
+- **Single document** — upload a file, see it classified with a confidence score, fields extracted into a table with per-field confidence and source citations, and a validation summary
+- **Compare documents** — upload 2+ files, see individual results plus cross-document analysis flagging inconsistencies, gaps, and confirmed alignments
+
+The sidebar dynamically lists all document types discovered from the `schemas/` directory.
+
 ## Evaluation Results
 
 Against the test corpus of 6 consulting documents:
@@ -77,6 +93,8 @@ Cross-document analysis detects real structural issues: termination notice perio
 
 ```
 doc-intelligence/
+├── app.py                ← Streamlit demo (streamlit run app.py)
+├── .streamlit/           ← Streamlit theme config
 ├── schemas/              ← Document type extraction schemas (JSON)
 │   ├── sow.json
 │   ├── contract.json
