@@ -1,0 +1,11 @@
+streamlit
+plotly
+
+# Core pipeline deps (also in requirements.txt)
+anthropic
+PyMuPDF
+python-docx
+pandas
+tiktoken
+pydantic
+python-dotenv
