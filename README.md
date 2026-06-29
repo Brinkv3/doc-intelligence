@@ -123,4 +123,4 @@ This is one of three repositories demonstrating breadth across the enterprise AI
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+[MIT](LICENSE) (c) 2026 Carter Brinkley Consulting LLC
