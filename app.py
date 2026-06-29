@@ -37,8 +37,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    /* Tighten default Streamlit spacing */
-    .block-container { padding-top: 2rem; }
+    .block-container { padding-top: 3rem; }
     div[data-testid="stMetric"] {
         background: #F7F5F0;
         border-radius: 8px;
@@ -122,7 +121,7 @@ def render_classification(result: PipelineResult):
     conf = cls.confidence
     color = confidence_color(conf)
 
-    st.markdown("#### Classification")
+    st.markdown("### Classification")
     col1, col2 = st.columns([3, 1])
     with col1:
         st.markdown(f"**{cls.document_type.replace('_', ' ').title()}**")
@@ -134,7 +133,7 @@ def render_classification(result: PipelineResult):
 
 def render_extraction(result: PipelineResult):
     ext = result.extraction
-    st.markdown("#### Extracted fields")
+    st.markdown("### Extracted fields")
 
     rows = []
     for f in ext.fields:
@@ -174,7 +173,7 @@ def render_validation(result: PipelineResult):
     val = result.validation
     summary = val.field_summary
 
-    st.markdown("#### Validation")
+    st.markdown("### Validation")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -193,7 +192,7 @@ def render_validation(result: PipelineResult):
 
 
 def render_cross_doc(findings: list[CrossDocFinding], doc_ids: list[str], summary: str):
-    st.markdown("#### Cross-document analysis")
+    st.markdown("### Cross-document analysis")
     st.caption(f"Comparing: {', '.join(doc_ids)}")
 
     if summary:
