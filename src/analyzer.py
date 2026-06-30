@@ -14,13 +14,12 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-import anthropic
+from llm_adapter import create_client
+from llm_adapter.providers.base import BaseProvider
 
 from .extractor import ExtractionResult
 
 logger = logging.getLogger(__name__)
-
-MODEL = "claude-sonnet-4-6"
 
 
 @dataclass
@@ -63,7 +62,7 @@ class AnalysisResult:
 
 def analyze_documents(
     extractions: list[ExtractionResult],
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> AnalysisResult:
     """Perform cross-document analysis on a set of extraction results.
 
@@ -79,7 +78,7 @@ def analyze_documents(
             summary="Cross-document analysis requires at least 2 documents.",
         )
 
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
 
     extractions_summary = _build_extractions_summary(extractions)
 
@@ -125,14 +124,13 @@ Analysis guidelines:
 
 Return ONLY the JSON object."""
 
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=8192,
-        system=system_prompt,
+    response = client.complete(
         messages=[{"role": "user", "content": user_prompt}],
+        system=system_prompt,
+        max_tokens=8192,
     )
 
-    response_text = response.content[0].text.strip()
+    response_text = response.text.strip()
     parsed = _parse_json_response(response_text)
 
     findings = [

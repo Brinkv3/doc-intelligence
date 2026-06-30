@@ -14,14 +14,13 @@ import logging
 from dataclasses import dataclass
 from typing import Any
 
-import anthropic
+from llm_adapter import create_client
+from llm_adapter.providers.base import BaseProvider
 
 from .ingest import Document
 from .schema_loader import get_available_types
 
 logger = logging.getLogger(__name__)
-
-MODEL = "claude-sonnet-4-6"
 
 
 def _parse_json_response(text: str) -> dict[str, Any]:
@@ -77,14 +76,14 @@ class ClassificationResult:
 
 def classify_document(
     document: Document,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> ClassificationResult:
     """Classify a document into one of the predefined types.
 
     Uses the extraction schemas to determine available types and their
     distinguishing characteristics.
     """
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
     available_types = get_available_types()
 
     type_descriptions = "\n\n".join(
@@ -126,14 +125,13 @@ Respond with a JSON object containing exactly these fields:
 
 Return ONLY the JSON object, no markdown formatting or extra text."""
 
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=300,
-        system=system_prompt,
+    response = client.complete(
         messages=[{"role": "user", "content": user_prompt}],
+        system=system_prompt,
+        max_tokens=300,
     )
 
-    response_text = response.content[0].text.strip()
+    response_text = response.text.strip()
 
     result = _parse_json_response(response_text)
 
@@ -156,10 +154,10 @@ Return ONLY the JSON object, no markdown formatting or extra text."""
 
 def classify_documents(
     documents: list[Document],
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> list[ClassificationResult]:
     """Classify multiple documents. Returns results in the same order."""
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
     results = []
     for doc in documents:
         try:

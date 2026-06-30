@@ -1,13 +1,9 @@
 # --- Core pipeline ---
-anthropic              # Claude API for classification and extraction
+llm-adapter[anthropic] @ git+https://github.com/Brinkv3/llm-adapter.git  # Provider-agnostic LLM calls
 PyMuPDF                # PDF parsing (import as fitz)
 python-docx            # DOCX parsing
 pandas                 # CSV / tabular handling
 tiktoken               # Token counting
-pydantic               # Schema validation and typed models
-
-# --- Config / DX ---
-python-dotenv          # Load ANTHROPIC_API_KEY from .env
 
 # --- Dev / test ---
 pytest                 # Test harness

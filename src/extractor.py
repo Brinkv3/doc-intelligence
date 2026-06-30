@@ -13,14 +13,13 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-import anthropic
+from llm_adapter import create_client
+from llm_adapter.providers.base import BaseProvider
 
 from .ingest import Document
 from .schema_loader import load_schema
 
 logger = logging.getLogger(__name__)
-
-MODEL = "claude-sonnet-4-6"
 MAX_DOC_CHARS = 80_000
 
 
@@ -72,10 +71,10 @@ class ExtractionResult:
 def extract_fields(
     document: Document,
     document_type: str,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> ExtractionResult:
     """Extract structured fields from a document according to its schema."""
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
     schema = load_schema(document_type)
 
     fields_spec = "\n".join(
@@ -127,14 +126,13 @@ Rules:
 - source_location should help a human find the value in the original document
 - Return ONLY the JSON object"""
 
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=4096,
-        system=system_prompt,
+    response = client.complete(
         messages=[{"role": "user", "content": user_prompt}],
+        system=system_prompt,
+        max_tokens=4096,
     )
 
-    response_text = response.content[0].text.strip()
+    response_text = response.text.strip()
     parsed = _parse_json_response(response_text)
 
     schema_fields = {f["name"]: f for f in schema["fields"]}

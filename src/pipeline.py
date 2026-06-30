@@ -12,7 +12,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-import anthropic
+from llm_adapter import create_client
+from llm_adapter.providers.base import BaseProvider
 
 from .ingest import Document, parse_file, parse_directory
 from .classifier import classify_document, ClassificationResult
@@ -44,14 +45,14 @@ class PipelineResult:
 
 def process_document(
     path: str | Path,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> PipelineResult:
     """Process a single document through the full pipeline.
 
     This is the primary entry point for external consumers. Takes a file path,
     returns a structured result with classification, extraction, and validation.
     """
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
 
     doc = parse_file(path)
     classification = classify_document(doc, client)
@@ -78,10 +79,10 @@ def process_document(
 
 def process_directory(
     path: str | Path,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> list[PipelineResult]:
     """Process all supported documents in a directory."""
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
     documents = parse_directory(path)
     results = []
 
@@ -105,14 +106,14 @@ def process_directory(
 
 def process_and_assess(
     path: str | Path,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> Assessment:
     """Process a directory of documents and produce a full assessment.
 
     This is the highest-level entry point: processes all documents, runs
     cross-document analysis, and generates a narrative assessment.
     """
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
     results = process_directory(path, client)
 
     classifications = [r.classification for r in results]

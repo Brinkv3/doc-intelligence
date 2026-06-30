@@ -13,7 +13,8 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-import anthropic
+from llm_adapter import create_client
+from llm_adapter.providers.base import BaseProvider
 
 from .classifier import ClassificationResult
 from .extractor import ExtractionResult
@@ -21,8 +22,6 @@ from .validator import ValidationReport
 from .analyzer import AnalysisResult
 
 logger = logging.getLogger(__name__)
-
-MODEL = "claude-sonnet-4-6"
 
 
 @dataclass
@@ -51,7 +50,7 @@ def build_assessment(
     extractions: list[ExtractionResult],
     validations: list[ValidationReport],
     analysis: AnalysisResult | None = None,
-    client: anthropic.Anthropic | None = None,
+    client: BaseProvider | None = None,
 ) -> Assessment:
     """Build a complete assessment from pipeline results.
 
@@ -59,7 +58,7 @@ def build_assessment(
     human-readable narrative summary suitable for a consultant reviewing
     documents for a client engagement.
     """
-    client = client or anthropic.Anthropic()
+    client = client or create_client()
 
     documents = []
     for cls, ext, val in zip(classifications, extractions, validations):
@@ -94,7 +93,7 @@ def build_assessment(
 def _generate_narrative(
     documents: list[dict[str, Any]],
     analysis: AnalysisResult | None,
-    client: anthropic.Anthropic,
+    client: BaseProvider,
 ) -> str:
     """Generate a human-readable narrative summary of the assessment."""
 
@@ -142,11 +141,10 @@ Write 3-5 paragraphs covering:
 
 Be specific — reference document names, field values, and finding details. Keep it under 400 words."""
 
-    response = client.messages.create(
-        model=MODEL,
-        max_tokens=1000,
-        system=system_prompt,
+    response = client.complete(
         messages=[{"role": "user", "content": user_prompt}],
+        system=system_prompt,
+        max_tokens=1000,
     )
 
-    return response.content[0].text.strip()
+    return response.text.strip()
