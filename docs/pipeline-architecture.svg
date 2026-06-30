@@ -43,7 +43,7 @@
   <text x="30" y="125" class="phase-label">Classification</text>
   <rect x="150" y="110" width="460" height="55" class="box-blue" />
   <text x="380" y="131" class="box-label">Document Classifier</text>
-  <text x="380" y="147" class="box-sub">Claude → document type + confidence score + reasoning</text>
+  <text x="380" y="147" class="box-sub">LLM → document type + confidence score + reasoning</text>
 
   <!-- Arrow -->
   <line x1="380" y1="165" x2="380" y2="200" class="arrow" />
@@ -72,7 +72,7 @@
   <text x="30" y="330" class="phase-label">Extraction</text>
   <rect x="150" y="315" width="460" height="70" class="box-green" />
   <text x="380" y="338" class="box-label">Structured Extractor</text>
-  <text x="380" y="355" class="box-sub">Claude → typed fields per schema</text>
+  <text x="380" y="355" class="box-sub">LLM → typed fields per schema</text>
   <text x="380" y="370" class="box-sub">Each field: value + confidence (0-100) + source location</text>
 
   <!-- Arrow -->
@@ -111,7 +111,7 @@
   <!-- Analyzer box -->
   <rect x="150" y="645" width="460" height="85" class="box-rose" />
   <text x="380" y="668" class="box-label">Cross-Document Analyzer</text>
-  <text x="380" y="685" class="box-sub">Claude compares extractions across documents</text>
+  <text x="380" y="685" class="box-sub">LLM compares extractions across documents</text>
   <text x="380" y="700" class="box-sub">Inconsistencies · Gaps · Cross-references</text>
   <text x="380" y="715" class="box-sub">Each finding: type + severity + citations</text>
 
@@ -122,7 +122,7 @@
   <text x="30" y="820" class="phase-label">Assessment</text>
   <rect x="150" y="805" width="460" height="55" class="box-royal" />
   <text x="380" y="826" class="box-label">Assessment Builder</text>
-  <text x="380" y="842" class="box-sub">Claude → structured JSON + narrative summary</text>
+  <text x="380" y="842" class="box-sub">LLM → structured JSON + narrative summary</text>
 
   <!-- Two output boxes -->
   <line x1="300" y1="860" x2="300" y2="900" class="arrow" />
