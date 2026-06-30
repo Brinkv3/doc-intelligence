@@ -38,9 +38,9 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Set your API key
+# Configure your LLM provider
 cp .env.example .env
-# Edit .env with your Anthropic API key
+# Edit .env — set LLM_PROVIDER, LLM_MODEL, and LLM_API_KEY
 
 # Process a single document
 python -c "
@@ -122,22 +122,23 @@ doc-intelligence/
 
 ## Dependencies
 
-- **anthropic** — Claude API for classification, extraction, analysis, and narrative generation
+- **[llm-adapter](https://github.com/Brinkv3/llm-adapter)** — Provider-agnostic LLM calls (Anthropic, OpenAI, Azure, Bedrock, local models)
 - **PyMuPDF** — PDF parsing
 - **python-docx** — DOCX parsing
 - **pandas** — CSV/tabular data handling
-- **pydantic** — Schema validation
 - **tiktoken** — Token counting
 
 ## Portfolio Context
 
-This is one of three repositories demonstrating breadth across the enterprise AI application landscape:
+This is part of a portfolio demonstrating breadth across the enterprise AI application landscape:
 
 | Repo | Demonstrates |
 |------|-------------|
 | [rag-pipeline](https://github.com/Brinkv3/rag-pipeline) | Retrieval, grounding, evaluation, governance, multi-agent orchestration |
 | **doc-intelligence** (this repo) | Classification, structured extraction, cross-document reasoning |
-| consulting-mcp-server | Protocol interoperability — exposes both as MCP tools |
+| [consulting-mcp-server](https://github.com/Brinkv3/consulting-mcp-server) | Protocol interoperability — exposes both as MCP tools |
+| [agentic-audit](https://github.com/Brinkv3/agentic-audit) | End-to-end agentic workflow automation |
+| [llm-adapter](https://github.com/Brinkv3/llm-adapter) | Provider-agnostic LLM infrastructure — vendor neutrality as architecture |
 
 ## License
 
