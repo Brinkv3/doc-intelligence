@@ -13,7 +13,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import anthropic
+from llm_adapter import create_client
 from src.ingest import parse_file
 from src.classifier import classify_document, ClassificationResult
 from src.extractor import extract_fields, ExtractionResult
@@ -27,7 +27,7 @@ GROUND_TRUTH_PATH = EVAL_DIR / "ground_truth.json"
 
 
 def main() -> None:
-    client = anthropic.Anthropic()
+    client = create_client()
 
     with open(GROUND_TRUTH_PATH) as f:
         ground_truth = json.load(f)

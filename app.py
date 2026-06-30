@@ -64,7 +64,7 @@ with st.sidebar:
         st.markdown(
             "Upload a document and the pipeline will:\n"
             "1. **Parse** the file (PDF, DOCX, MD, TXT, CSV)\n"
-            "2. **Classify** the document type using Claude\n"
+            "2. **Classify** the document type using LLM\n"
             "3. **Extract** structured fields per schema\n"
             "4. **Validate** required fields and confidence\n\n"
             "In compare mode, upload 2+ documents to run "

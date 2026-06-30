@@ -1,10 +1,10 @@
 """Document classifier.
 
-Uses Claude to classify a document into one of the predefined types.
-Returns the classified type, confidence score, and reasoning. The classifier
-uses the schema definitions to know what types exist and their distinguishing
-characteristics — adding a new schema file automatically makes it a
-classifiable type.
+Classifies a document into one of the predefined types using the configured
+LLM provider. Returns the classified type, confidence score, and reasoning.
+The classifier uses the schema definitions to know what types exist and their
+distinguishing characteristics — adding a new schema file automatically makes
+it a classifiable type.
 """
 
 from __future__ import annotations

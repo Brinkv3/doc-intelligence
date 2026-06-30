@@ -2,10 +2,8 @@ streamlit
 plotly
 
 # Core pipeline deps (also in requirements.txt)
-anthropic
+llm-adapter[anthropic] @ git+https://github.com/Brinkv3/llm-adapter.git
 PyMuPDF
 python-docx
 pandas
 tiktoken
-pydantic
-python-dotenv

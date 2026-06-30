@@ -1,8 +1,9 @@
 """Structured field extraction.
 
-Uses Claude to extract typed fields from a document according to its
-extraction schema. Every extracted field includes a value, confidence score,
-and source location citing where in the document the value was found.
+Extracts typed fields from a document according to its extraction schema
+using the configured LLM provider. Every extracted field includes a value,
+confidence score, and source location citing where in the document the value
+was found.
 """
 
 from __future__ import annotations
